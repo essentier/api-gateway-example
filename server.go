@@ -26,21 +26,21 @@ func initRoutes() *mux.Router {
 		return nil
 	}
 
-	todoService, err := spickspan.GetHttpService(provider, "todo-rest", "/todos")
+	todoService, err := spickspan.GetHttpService(provider, "todo-example", "/todos")
 	if err != nil {
 		log.Fatalf("Could not get the todo service. The error is %v", err)
 		return nil
 	}
 
-	helloService, err := spickspan.GetHttpService(provider, "hello-rest", "/hello")
+	helloService, err := spickspan.GetHttpService(provider, "hello-example", "/hello")
 	if err != nil {
 		log.Fatalf("Could not get the hello service. The error is %v", err)
 		return nil
 	}
 
 	router := mux.NewRouter()
-	setReverseProxyRoutes(router, todoService.GetUrl(), "/todo-rest/")
-	setReverseProxyRoutes(router, helloService.GetUrl(), "/hello-rest/")
+	setReverseProxyRoutes(router, todoService.GetUrl(), "/todo-example/")
+	setReverseProxyRoutes(router, helloService.GetUrl(), "/hello-example/")
 	return router
 }
 

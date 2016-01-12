@@ -11,14 +11,14 @@
             "project_src_root": ".",
             "port": 8087
         },
-        "todo-rest": {
+        "todo-example": {
             "protocol": "http",
-            "project_src_root": "../todo-rest",
+            "project_src_root": "../todo-example",
             "port": 5000
         },
-        "hello-rest": {
+        "hello-example": {
             "protocol": "http",
-            "project_src_root": "../hello-rest",
+            "project_src_root": "../hello-example",
             "port": 8080
         }   
     }
