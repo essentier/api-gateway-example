@@ -1,0 +1,52 @@
+{
+	"ImportPath": "github.com/essentier/api-gateway-example",
+	"GoVersion": "go1.4.2",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/codegangsta/negroni",
+			"Comment": "v0.1-70-gc7477ad",
+			"Rev": "c7477ad8e330bef55bf1ebe300cf8aa67c492d1b"
+		},
+		{
+			"ImportPath": "github.com/dgrijalva/jwt-go",
+			"Comment": "v2.2.0-28-g2e53eb6",
+			"Rev": "2e53eb673c4450614e3bca6f345197f9527dce71"
+		},
+		{
+			"ImportPath": "github.com/essentier/gopencils",
+			"Rev": "3fbee41dde3bf1bef56627fea955714c2f387fe2"
+		},
+		{
+			"ImportPath": "github.com/essentier/nomockutil",
+			"Rev": "247cd2a72e73bb909fe32ba04bf7cb5151e088ba"
+		},
+		{
+			"ImportPath": "github.com/essentier/spickspan",
+			"Rev": "62537109aed8f1b8a2d760a74fd14e7cbdcd4795"
+		},
+		{
+			"ImportPath": "github.com/essentier/testutil",
+			"Rev": "d2d1aee9f6e323fb6cdd49626945ddca10ff808f"
+		},
+		{
+			"ImportPath": "github.com/go-errors/errors",
+			"Rev": "a41850380601eeb43f4350f7d17c6bbd8944aaf8"
+		},
+		{
+			"ImportPath": "github.com/gorilla/context",
+			"Rev": "215affda49addc4c8ef7e2534915df2c8c35c6cd"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Rev": "47e8f450ef38c857cdd922ec08862ca9d65a1c6d"
+		},
+		{
+			"ImportPath": "gopkg.in/mgo.v2",
+			"Comment": "r2015.06.03-3-g3569c88",
+			"Rev": "3569c88678d88179dcbd68d02ab081cbca3cd4d0"
+		}
+	]
+}

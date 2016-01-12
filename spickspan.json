@@ -1,0 +1,25 @@
+{
+    "version": "beta1",
+    "cloud_provider": {
+        "url": "https://nomock.essentier.com",
+        "username": "cha_urwu@hotmail.com",
+        "password": "Cauchy@1789"
+    },
+    "services": {
+        "api-gateway-example": {
+            "protocol": "http",
+            "project_src_root": ".",
+            "port": 8087
+        },
+        "todo-rest": {
+            "protocol": "http",
+            "project_src_root": "../todo-rest",
+            "port": 5000
+        },
+        "hello-rest": {
+            "protocol": "http",
+            "project_src_root": "../hello-rest",
+            "port": 8080
+        }   
+    }
+}
