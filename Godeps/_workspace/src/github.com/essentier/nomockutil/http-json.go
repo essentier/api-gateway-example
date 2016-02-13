@@ -6,9 +6,9 @@ import (
 	"net/http"
 )
 
-func WriteObjectOrErr(w http.ResponseWriter, dataObj interface{}, err error) {
+func WriteObjectOrErr(w http.ResponseWriter, dataObj interface{}, errStatusCode int, err error) {
 	if err != nil {
-		WriteError(w, err)
+		WriteError(errStatusCode, w, err)
 	} else {
 		writeObject(w, dataObj)
 	}
@@ -17,7 +17,7 @@ func WriteObjectOrErr(w http.ResponseWriter, dataObj interface{}, err error) {
 func writeObject(w http.ResponseWriter, responseObj interface{}) {
 	responseBytes, err := json.Marshal(responseObj)
 	if err != nil {
-		WriteError(w, err)
+		WriteError(http.StatusInternalServerError, w, err)
 	} else {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
@@ -25,7 +25,7 @@ func writeObject(w http.ResponseWriter, responseObj interface{}) {
 	}
 }
 
-func WriteError(w http.ResponseWriter, err error) {
+func WriteError(statusCode int, w http.ResponseWriter, err error) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusInternalServerError)
 	errMap := make(map[string]string)
