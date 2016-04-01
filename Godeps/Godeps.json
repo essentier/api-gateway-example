@@ -21,11 +21,11 @@
 		},
 		{
 			"ImportPath": "github.com/essentier/nomockutil",
-			"Rev": "56317b45811ceb3c0688841b24386c6a70713350"
+			"Rev": "910c9aa9ee6ad3fa5bf96af7dd30cc9590d5028a"
 		},
 		{
 			"ImportPath": "github.com/essentier/spickspan",
-			"Rev": "75f33975b37d4bff6bf6bf3bf6a541437e02fd68"
+			"Rev": "b8fa457256fb6f3f5faf3f6e808d37394546a35f"
 		},
 		{
 			"ImportPath": "github.com/essentier/testutil",
