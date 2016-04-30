@@ -6,7 +6,7 @@ type CmdError struct {
 }
 
 func (ce CmdError) Error() string {
-	return ce.Error() + " stderr: " + ce.Stderr
+	return ce.Err.Error() + " stderr: " + ce.Stderr
 }
 
 type CmdRunner interface {

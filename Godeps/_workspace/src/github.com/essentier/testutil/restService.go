@@ -4,30 +4,9 @@ import (
 	"testing"
 
 	"github.com/essentier/gopencils"
-	"github.com/essentier/spickspan"
-	"github.com/essentier/spickspan/config"
 	"github.com/essentier/spickspan/model"
 	"github.com/essentier/spickspan/probe"
 )
-
-var provider model.Provider
-
-func init() {
-	config, err := config.GetConfig()
-	if err != nil {
-		panic("Failed to find and parse spickspan.json. The error is " + err.Error())
-	}
-
-	provider, err = spickspan.GetNomockProvider(config)
-	if err != nil {
-		panic("Failed to get nomock provider. The error is " + err.Error())
-	}
-
-	err = spickspan.BuildAllInConfig(config)
-	if err != nil {
-		panic("Failed to build projects. The error is " + err.Error())
-	}
-}
 
 func CreateRestService(serviceName string, readinessPath string, t *testing.T) *restService {
 	service, err := provider.GetService(serviceName)

@@ -25,6 +25,14 @@ func writeObject(w http.ResponseWriter, responseObj interface{}) {
 	}
 }
 
+func WriteErrorIfAny(statusCode int, w http.ResponseWriter, err error) {
+	if err == nil {
+		return
+	} else {
+		WriteError(statusCode, w, err)
+	}
+}
+
 func WriteError(statusCode int, w http.ResponseWriter, err error) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusInternalServerError)

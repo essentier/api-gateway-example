@@ -21,15 +21,15 @@
 		},
 		{
 			"ImportPath": "github.com/essentier/nomockutil",
-			"Rev": "910c9aa9ee6ad3fa5bf96af7dd30cc9590d5028a"
+			"Rev": "53804fc71812f3a8ae3dc32a3fa15fd745b8ee03"
 		},
 		{
 			"ImportPath": "github.com/essentier/spickspan",
-			"Rev": "b8fa457256fb6f3f5faf3f6e808d37394546a35f"
+			"Rev": "0d68b918096e41a7c473d1b38598a23be67c4602"
 		},
 		{
 			"ImportPath": "github.com/essentier/testutil",
-			"Rev": "d2d1aee9f6e323fb6cdd49626945ddca10ff808f"
+			"Rev": "2514157a9beca489aa4762cf81af29b96a142941"
 		},
 		{
 			"ImportPath": "github.com/go-errors/errors",

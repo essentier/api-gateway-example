@@ -8,7 +8,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"strings"
 
 	"github.com/essentier/nomockutil"
 )
@@ -18,7 +17,7 @@ const SpickSpanConfigFile = "spickspan.json"
 var ssconfig string
 
 func init() {
-	flag.StringVar(&ssconfig, "ssconfig", ".", "configuration for spickspan")
+	flag.StringVar(&ssconfig, "spickspan", filepath.Join(".", SpickSpanConfigFile), "configuration for spickspan")
 }
 
 func GetConfig() (Model, error) {
@@ -87,19 +86,30 @@ func findPathOfConfigFile() (string, error) {
 	//  the value of the -ssconfig flag plus
 	//  the file name 'ssconfig.json'.
 	//The default value of the -ssconfig file is '.'
-	filedir, err := filepath.Abs(ssconfig)
+	flag.Parse()
+	configFilePath, err := filepath.Abs(ssconfig)
 	if err != nil {
 		return "", err
 	}
 
-	filedir = filepath.Clean(filedir)
-
-	if strings.HasSuffix(filedir, SpickSpanConfigFile) {
-		filedir = filepath.Dir(filedir)
-	}
-
+	configFilePath = filepath.Clean(configFilePath)
+	filedir := filepath.Dir(configFilePath)
+	filename := filepath.Base(configFilePath)
 	log.Printf("Starting to find config file at %v and up the directory hierarchy.", filedir)
-	return findFileInParentDirs(filedir, SpickSpanConfigFile)
+	return findFileInParentDirs(filedir, filename)
+
+	// if strings.HasSuffix(configFilePath, SpickSpanConfigFile) {
+	// 	filedir := filepath.Dir(configFilePath)
+	// 	log.Printf("Starting to find config file at %v and up the directory hierarchy.", filedir)
+	// 	return findFileInParentDirs(filedir, SpickSpanConfigFile)
+	// } else {
+	// 	_, err := os.Stat(configFilePath)
+	// 	if os.IsNotExist(err) {
+	// 		return "", errors.New("Could not find config file.")
+	// 	} else {
+	// 		return configFilePath, nil
+	// 	}
+	// }
 }
 
 func findFileInParentDirs(filedir string, filename string) (string, error) {
@@ -111,8 +121,9 @@ func findFileInParentDirs(filedir string, filename string) (string, error) {
 			return "", errors.New("Could not find config file.")
 		}
 		return findFileInParentDirs(parentFiledir, filename)
+	} else if err != nil {
+		return "", err
 	} else {
-		log.Printf("ssconfig file path: %v", fullFileName)
 		return fullFileName, nil
 	}
 }
